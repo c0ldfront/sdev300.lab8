@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>login page</title>
+</head>
+<body>
+<div class="container">
+    <h1>Please login</h1>
+    <br>
+    <form action="" method="post">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+        <label>
+            <input type="text" placeholder="Username" name="username"
+                   value="{{ request.form.username }}">
+        </label>
+        <label>
+            <input type="password" placeholder="Password" name="password"
+                   value="{{ request.form.password }}">
+        </label>
+        <input class="btn" type="submit" value="Login">
+    </form>
+    {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}
+    {% endif %}
+</div>
+</body>
+</html>
